@@ -33,7 +33,11 @@
   </script>
   {{ end }}
 
-  {{ if .Site.IsServer }}
+  {{ if .Site.Params.disableDefaultJsScripts }}
+  {{ if not .Site.Params.hideColorSchemeToggle }}
+  {{ errorf "Invalid configuration. Default JS scripts are disabled, but 'hideColorSchemeToggle' is false." }}
+  {{end}}
+  {{ else if hugo.IsServer }}
   {{ $script := resources.Get "js/coder.js" }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
@@ -45,7 +49,7 @@
   <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 
   {{ range .Site.Params.customJS }}
-  {{ if $.Site.IsServer }}
+  {{ if hugo.IsServer }}
   {{ $script := resources.Get . }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
@@ -55,7 +59,7 @@
   {{ end }}
 
   {{ range .Site.Params.customRemoteJS }}
-  {{ if $.Site.IsServer }}
+  {{ if hugo.IsServer }}
   {{ $script := resources.GetRemote . }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
@@ -105,6 +109,10 @@
 
   {{ if and .Site.Params.microAnalytics .Site.Params.microAnalytics.id }}
   {{- partial "analytics/microanalyticsio" . -}}
+  {{ end }}
+
+  {{ if .Site.Params.vercelAnalytics}}
+  {{- partial "analytics/vercel" . -}}
   {{ end }}
 
   {{ if and .Site.Params.yandexMetrika .Site.Params.yandexMetrika.id }}
