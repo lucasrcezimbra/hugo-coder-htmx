@@ -1,21 +1,23 @@
 # Configurations
 
-* [About Hugo Configurations](#about-hugo-configurations)
-  * [Analytics](/docs/analytics.md)
-  * [Commenting Systems](#commenting-systems)
-    * [Disqus](#disqus)
-    * [Commento](#commento)
-    * [Utterances](#utterances)
-    * [Giscus](#giscus)
-    * [Cusdis](#cusdis)
-* [Syntax Highlight](#syntax-highlight)
-* [Theme Parameters](#theme-parameters)
-  * [Social Icons Configuration](#social-icons-configuration)
-  * [Menu Items Configurations](#menu-items-configurations)
-  * [CSP](#csp)
-* [Complete Example](#complete-example)
-* [Front Matter](#front-matter)
-  * [Posts](#posts)
+- [Configurations](#configurations)
+  - [About Hugo Configurations](#about-hugo-configurations)
+    - [Commenting Systems](#commenting-systems)
+      - [Disqus](#disqus)
+      - [Commento](#commento)
+      - [Utterances](#utterances)
+      - [Giscus](#giscus)
+      - [Telegram](#telegram)
+      - [Cusdis](#cusdis)
+      - [Mastodon](#mastodon)
+  - [Syntax Highlight](#syntax-highlight)
+  - [Theme Parameters](#theme-parameters)
+    - [Social Icons Configuration](#social-icons-configuration)
+    - [Menu Items Configurations](#menu-items-configurations)
+    - [CSP](#csp)
+  - [Complete Example](#complete-example)
+  - [Front Matter](#front-matter)
+    - [Posts](#posts)
 
 ## About Hugo Configurations
 
@@ -96,6 +98,17 @@ Follow [these steps](https://gohugo.io/content-management/comments/#configure-di
   data_app_id = ""
 ```
 
+#### Mastodon
+
+```toml
+[params.mastodon]
+  host = "" # Address of your Mastodon instance
+  username = "" # Your username
+  statusID = "" # ID os the status (post) that comments should be related
+  purifyCDN = "" # CDN address of pointing to a Purify package
+
+```
+
 ## Syntax Highlight
 
 The theme uses the Goldmark syntax highlight system. GitHub light and dark are set as the default styles. To choose a different style, make sure `noClasses` is not set to false (default is true) and add to your `config.toml`:
@@ -121,6 +134,7 @@ These are all the parameters used by `hugo-coder` theme.
 | keywords                      | string | Yes      | Site keywords.                                   |                                  | `"blog,developer,personal"`                      |
 | avatarURL                     | string | No       | Photo of the author.                             |                                  | `"images/avatar.jpg"`                            |
 | gravatar                      | string | No       | Gravatar photo of the author                     |                                  | `"john.doe@example.com"`                         |
+| fediverseCreator              | string | No       | The author's fediverse handle.                   |                                  | `"@johndoe@example.com"`                         |
 | faviconSVG                    | string | No       | Custom path to a SCG favicon.                    | `"/img/favicon.svg"`             | `"/img/favicon.svg"`                             |
 | favicon_32                    | string | No       | Custom path to a 32x32 favicon.                  | `"/img/favicon-32x32.png"`       | `"/img/favicon-32x32.png"`                       |
 | favicon_16                    | string | No       | Custom path to a 16x16 favicon.                  | `"/img/favicon-16x16.png"`       | `"/img/favicon-16x16.png"`                       |
