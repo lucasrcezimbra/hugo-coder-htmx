@@ -111,7 +111,7 @@ Follow [these steps](https://gohugo.io/content-management/comments/#configure-di
 
 ## Syntax Highlight
 
-The theme uses the Goldmark syntax highlight system. GitHub light and dark are set as the default styles. To choose a different style, make sure `noClasses` is not set to false (default is true) and add to your `config.toml`:
+The theme uses the Goldmark syntax highlight system. GitHub light and dark are set as the default styles. To choose a different style, make sure `noClasses` is not set to false (default is true) and add to your `hugo.toml`:
 
 ```
 [markup.highlight]
@@ -126,35 +126,37 @@ Alternatively, it is possible to use custom styles with generated CSS files. See
 
 These are all the parameters used by `hugo-coder` theme.
 
-| Name                          | Type   | Required | Description                                      | Default                          | Example                                          |
-| ----------------------------- | ------ | -------- | ------------------------------------------------ | -------------------------------- | ------------------------------------------------ |
-| author                        | string | Yes      | Author name.                                     |                                  | `"John Doe"`                                     |
-| info                          | string | Yes      | An headline, job title or similar.               |                                  | `"Full Stack Developer"`                         |
-| description                   | string | Yes      | Description of the site.                         |                                  | `"John Doe's personal website"`                  |
-| keywords                      | string | Yes      | Site keywords.                                   |                                  | `"blog,developer,personal"`                      |
-| avatarURL                     | string | No       | Photo of the author.                             |                                  | `"images/avatar.jpg"`                            |
-| gravatar                      | string | No       | Gravatar photo of the author                     |                                  | `"john.doe@example.com"`                         |
-| fediverseCreator              | string | No       | The author's fediverse handle.                   |                                  | `"@johndoe@example.com"`                         |
-| faviconSVG                    | string | No       | Custom path to a SCG favicon.                    | `"/img/favicon.svg"`             | `"/img/favicon.svg"`                             |
-| favicon_32                    | string | No       | Custom path to a 32x32 favicon.                  | `"/img/favicon-32x32.png"`       | `"/img/favicon-32x32.png"`                       |
-| favicon_16                    | string | No       | Custom path to a 16x16 favicon.                  | `"/img/favicon-16x16.png"`       | `"/img/favicon-16x16.png"`                       |
-| touchIcon                     | string | No       | Custom path to an apple-touch-icon                      | `"/images/apple-touch-icon.png"` | `"/images/apple-touch-icon.png"`                 |
-| mask_icon                     | string | No       | Custom path to a mask-icon                      | `"/images/safari-pinned-tab.svg"` | `"/images/safari-pinned-tab.svg"`                 |
-| mask_icon_color                     | string | No       | Custom color for mask-icon color                      | `"#5bbad5"` | `"#5bbad5"`                 |
-| since                         | string | No       | Date shown in the footer before now year         |                                  | `"2020"`                                         |
-| maxSeeAlsoItems               | number | No       | Series see also post count                       | `5`                              | `10`                                             |
-| commit                        | string | No       | Show the last git commit in the footer           |                                  | `"https://github.com/luizdepra/hugo-coder/tree/"`|
-| rtl                           | bool   | No       | Enable the Right To Left mode.                   | `false`                          | `true` or `false`                                |
-| math                          | bool   | No       | Enable MathJax Module and add JS into your site. | `false`                          | `true` or `false`                                |
-| katex                         | bool   | No       | Enable katex for all content types.              | `false`                          | `true` or `false`                                |
-| colorScheme                   | string | No       | Specify light/dark colorscheme                   | `"auto"`                         | `"auto"` or `"light"` or `"dark"`                |
-| hideColorSchemeToggle         | bool   | No       | If true, hides the color scheme toggle            | `false`                          | `true` or `false`                                |
-| customCSS                     | list   | No       | Add extra CSS files to the website.              | []                               | `["css/extra-style.css"]`                        |
-| customSCSS                    | list   | No       | Add extra SCSS files to the website.             | []                               | `["scss/extra-style.scss"]`                      |
-| customJS                      | list   | No       | Add extra JS files to the website.               | []                               | `["js/extra-script.js"]`                         |
-| customRemoteJS                | list   | No       | Add extra remote JS files to the website.        | []                               | `["https://www.example.com/file.js"]`            |
-| enableTwemoji                 | bool   | No       | Adds support for Twemoji                         | `false`                          | `true` or `false`                                |
-| disableDefaultJsScripts       | bool   | No       | If true, disables default js scripts (coder.js)  | `false`                          | `true` or `false`                                |
+| Name                    | Type   | Required | Description                                                              | Default                           | Example                                           |
+| ----------------------- | ------ | -------- | ------------------------------------------------------------------------ | --------------------------------- | ------------------------------------------------- |
+| author                  | string | Yes      | Author name.                                                             |                                   | `"John Doe"`                                      |
+| info                    | string | Yes      | An headline, job title or similar.                                       |                                   | `"Full Stack Developer"`                          |
+| description             | string | Yes      | Description of the site.                                                 |                                   | `"John Doe's personal website"`                   |
+| keywords                | string | Yes      | Site keywords.                                                           |                                   | `"blog,developer,personal"`                       |
+| avatarURL               | string | No       | Photo of the author.                                                     |                                   | `"images/avatar.jpg"`                             |
+| gravatar                | string | No       | Gravatar photo of the author                                             |                                   | `"john.doe@example.com"`                          |
+| fediverseCreator        | string | No       | The author's fediverse handle.                                           |                                   | `"@johndoe@example.com"`                          |
+| faviconSVG              | string | No       | Custom path to a SCG favicon.                                            | `"/img/favicon.svg"`              | `"/img/favicon.svg"`                              |
+| favicon_32              | string | No       | Custom path to a 32x32 favicon.                                          | `"/img/favicon-32x32.png"`        | `"/img/favicon-32x32.png"`                        |
+| favicon_16              | string | No       | Custom path to a 16x16 favicon.                                          | `"/img/favicon-16x16.png"`        | `"/img/favicon-16x16.png"`                        |
+| touchIcon               | string | No       | Custom path to an apple-touch-icon                                       | `"/images/apple-touch-icon.png"`  | `"/images/apple-touch-icon.png"`                  |
+| mask_icon               | string | No       | Custom path to a mask-icon                                               | `"/images/safari-pinned-tab.svg"` | `"/images/safari-pinned-tab.svg"`                 |
+| mask_icon_color         | string | No       | Custom color for mask-icon color                                         | `"#5bbad5"`                       | `"#5bbad5"`                                       |
+| since                   | string | No       | Date shown in the footer before now year                                 |                                   | `"2020"`                                          |
+| maxSeeAlsoItems         | number | No       | Series see also post count                                               | `5`                               | `10`                                              |
+| commit                  | string | No       | Show the last git commit in the footer                                   |                                   | `"https://github.com/luizdepra/hugo-coder/tree/"` |
+| rtl                     | bool   | No       | Enable the Right To Left mode.                                           | `false`                           | `true` or `false`                                 |
+| math                    | bool   | No       | Enable MathJax Module and add JS into your site.                         | `false`                           | `true` or `false`                                 |
+| katex                   | bool   | No       | Enable KaTeX for all content types.                                      | `false`                           | `true` or `false`                                 |
+| colorScheme             | string | No       | Specify light/dark colorscheme                                           | `"auto"`                          | `"auto"` or `"light"` or `"dark"`                 |
+| hideColorSchemeToggle   | bool   | No       | If true, hides the color scheme toggle                                   | `false`                           | `true` or `false`                                 |
+| customCSS               | list   | No       | Add extra CSS files to the website.                                      | []                                | `["css/extra-style.css"]`                         |
+| customSCSS              | list   | No       | Add extra SCSS files to the website.                                     | []                                | `["scss/extra-style.scss"]`                       |
+| customJS                | list   | No       | Add extra JS files to the website.                                       | []                                | `["js/extra-script.js"]`                          |
+| customRemoteJS          | list   | No       | Add extra remote JS files to the website.                                | []                                | `["https://www.example.com/file.js"]`             |
+| enableTwemoji           | bool   | No       | Adds support for Twemoji                                                 | `false`                           | `true` or `false`                                 |
+| disableDefaultJsScripts | bool   | No       | If true, disables default js scripts (coder.js)                          | `false`                           | `true` or `false`                                 |
+| HeadTitle               | string | No       | When configured, it overrides the `<title>` tag with the provided string | ""                                | `"My custom title"`                               |
+
 
 ### Social Icons Configuration
 
@@ -270,11 +272,13 @@ theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
 
-paginate = 20
+
+[pagination]
+pagerSize = 20
 
 [services]
 [services.disqus]
-disqusShortname = "yourdiscussshortname"
+shortname = "yourdiscussshortname"
 
 [markup.highlight]
 style = "github-dark"
@@ -357,8 +361,8 @@ These are the front matter variables used by `hugo-coder` theme.
 | externalLink     | string | No       | Link to an external post.                          |         | `"https://github.com/luizdepra/hugo-coder/wiki"`                                |
 | featuredImage    | string | No       | Link/path to add an image below post metadata.     |         | `"https://github.com/luizdepra/hugo-coder/blob/master/images/screenshot.png"`   |
 | math             | bool   | No       | If true, MathJax is enabled only for this post.    | `false` | `true` or `false`                                                               |
-| katex            | bool   | No       | If true, katex is enabled only for this post.      | `false` | `true` or `false`                                                               |
+| katex            | bool   | No       | If true, KaTeX is enabled only for this post.      | `false` | `true` or `false`                                                               |
 | disableComments  | bool   | No       | If true, comments are disabled.                    | `false` | `true` or `false`                                                               |
 | canonicalUrl     | string | No       | Link to override <link rel="canonical"/> in <head> | `false` | `"https://my-company.com/blog/my-blog-post-that-I-repost-without-hurtiong-seo"` |
 
-> "tags", "categories", "series" and "authors" are taxonomies defined in the `config.toml` file.
+> "tags", "categories", "series" and "authors" are taxonomies defined in the `hugo.toml` file.

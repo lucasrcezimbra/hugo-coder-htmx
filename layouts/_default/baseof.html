@@ -2,7 +2,7 @@
 <html lang="{{ .Site.Language.Lang }}">
 
 <head>
-  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <title>{{ block "title" . }}{{ .Site.Params.HeadTitle | default .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
 </head>
 
@@ -111,6 +111,10 @@
   {{- partial "analytics/microanalyticsio" . -}}
   {{ end }}
 
+  {{ if and .Site.Params.onedollarstats .Site.Params.onedollarstats.id }}
+  {{- partial "analytics/onedollarstats" . -}}
+  {{ end }}
+
   {{ if .Site.Params.vercelAnalytics}}
   {{- partial "analytics/vercel" . -}}
   {{ end }}
@@ -133,5 +137,4 @@
 
   {{- partial "body/extensions" . -}}
 </body>
-
 </html>
